@@ -17,13 +17,14 @@ const todos = (state: ITodo[] = [], action: IAddTodo | IToggleTodo) => {
                 ...state,
                 {
                     completed: false,
-                    text: (action as IAddTodo).text                
+                    id: (state.length + 1),
+                    text: (action as IAddTodo).text                    
                 }
             ];
         case ActionType.TOGGLE_TODO:
-            return state.map( (todo, index) => {
-                if (index === (action as IToggleTodo).id){
-                    return Object.assign({}, todo, {completed: todo.completed});
+            return state.map( (todo) => {
+                if (todo.id === (action as IToggleTodo).id){
+                    return Object.assign({}, todo, {completed: !todo.completed});
                 }
                 return todo;
             });

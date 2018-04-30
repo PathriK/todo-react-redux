@@ -12,6 +12,9 @@
             "name": "Launch Chrome against localhost",
             "url": "http://localhost:3000",
             "webRoot": "${workspaceRoot}/src",
+            "runtimeArgs": [
+                "--auto-open-devtools-for-tabs"
+            ],
             "sourceMapPathOverrides": {
                 "webpack:///src/*": "${webRoot}/*"
             },
